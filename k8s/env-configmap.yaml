@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: hang-007-dev
+  AWS_BUCKET: hang-4162fa78
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: testing
   POSTGRES_DB: postgres
-  POSTGRES_HOST: hang-database-007.cp7jj5g7owjy.us-east-1.rds.amazonaws.com
+  POSTGRES_HOST: hang-4162fa78-db.czdcfwaemris.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100  
 metadata:
   name: env-config
