@@ -5,7 +5,7 @@ metadata:
     service: backend-feed
   name: backend-feed
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       service: backend-feed
@@ -17,7 +17,12 @@ spec:
       containers:
       - image: frankie08/udagram-api-feed:dev1
         name: backend-feed
-        imagePullPolicy: Always                
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m                
         env:
         - name: URL
           valueFrom:
@@ -67,9 +72,8 @@ spec:
         volumeMounts:
         - name: aws-secret
           mountPath: "/root/.aws/"
-          readOnly: true        
       restartPolicy: Always
       volumes:
       - name: aws-secret
-        secret:
-          secretName: aws-secret
+        configMap:
+          name: aws-secret
